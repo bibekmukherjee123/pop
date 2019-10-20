@@ -1,0 +1,212 @@
+// !DOCTYPE html
+html(lang='en')
+  head
+    title Property 360
+    meta(name='description', content='')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no')
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js', integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=', crossorigin='anonymous')
+    script(type='text/javascript', src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+    script(src='user/js/homemain.js')
+    script(src='user/js/main.js')
+    link(rel='stylesheet', href='user/css/font-awesome.min.css')
+    link(rel='stylesheet', href='user/css/line-awesome.min.css')
+    link(rel='stylesheet', href='user/css/bootstrap.min.css')
+    link(rel='stylesheet', href='user/css/select2.min.css')
+    link(rel='stylesheet', href='user/css/style.css')
+    link(rel='stylesheet', href='user/css/responsive.css')
+    style.
+      body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      }
+      #property_checkbox label {
+      margin: 0px 3px 0px 3px;
+      }
+      ::-webkit-scrollbar {
+      -webkit-appearance: none;
+      width: 8px;
+      }
+      ::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background-color: rgba(0, 0, 0, .5);
+      -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+      box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+      }
+  body#body.search_body
+    header#site-header.site-header.search_header
+      .container
+        .row
+          .col-md-2
+            .site-logo
+              a(href='/home')
+                img.img-fluid(src='/user/images/logo.png', title='Logo')
+              a.search_menu(href='#!')
+                i.fa.fa-search(aria-hidden='true')
+          .col-md-9
+            .property-search-wrapper.max_screen
+              form.property-search-form(action='javascript:void(0)')
+                .clear-all
+                ul.list-common
+                  li.form-field
+                    .block-container
+                      .keyword-search-box
+                        select#keyword.keyword(name='keyword[]', multiple='multiple', style='width: 100%')
+                          // <optgroup id="property_names" label="Property Names">
+                          // <optgroup id="locations" label="Locations">
+                          optgroup#property_tags(label='Location Tags')
+                  li.form-field
+                    .property-type-box
+                      input#message-1.input-area.select_box(type='button', value='Property Type')
+                    #respond-1.dropdown-list.prop-type-dropdown(style='display: none')
+                      .prop-type
+                        #property_checkbox.property_label
+                  li.form-field
+                    .budget-box
+                      input#message-2.input-area(type='button', value='Budget')
+                    #respond-2.budget-dropdown(style='display:none')
+                      .refine-budget
+                        .range.range-list
+                          .range-option
+                            #min.range-link.range-option--min MIN
+                            #max.range-link.range-option--max MAX
+                          #min_show.range-min.refine-budget--range-min.dropdown-select2-container
+                            select#budget_min.budget-range-min(name='budgetMin[]', style='width: 100%')
+                              option(value='10000') 10 K
+                              option(value='20000') 20 K
+                              option(value='30000') 30 K
+                              option(value='40000') 40 K
+                              option(value='50000') 50 K
+                              option(value='60000') 60 K
+                              option(value='70000') 70 K
+                              option(value='80000') 80 K
+                              option(value='90000') 90 K
+                              option(value='1000000') 1 Lac
+                              option(value='500000') 5 Lac
+                              option(value='1000000') 10 Lac
+                              option(value='2000000') 20 Lac
+                              option(value='2500000') 25 Lac
+                              option(value='3000000') 30 Lac
+                              option(value='4000000') 40 Lac
+                              option(value='5000000') 50 Lac
+                              option(value='6000000') 60 Lac
+                              option(value='7000000') 70 Lac
+                              option(value='8000000') 80 Lac
+                              option(value='9000000') 90 Lac
+                              option(value='10000000') 1 Cr
+                              option(value='50000000') 5 Cr
+                          #max_show.range-max.refine-budget--range-max.dropdown-select2-container(style='display: none')
+                            select#budget_max.budget-range-max(name='budgetMax[]', style='width: 100%')
+                              option(value='20000') 20 K
+                              option(value='30000') 30 K
+                              option(value='40000') 40 K
+                              option(value='50000') 50 K
+                              option(value='60000') 60 K
+                              option(value='70000') 70 K
+                              option(value='80000') 80 K
+                              option(value='90000') 90 K
+                              option(value='1000000') 1 Lac
+                              option(value='500000') 5 Lac
+                              option(value='1000000') 10 Lac
+                              option(value='2000000') 20 Lac
+                              option(value='2500000') 25 Lac
+                              option(value='3000000') 30 Lac
+                              option(value='4000000') 40 Lac
+                              option(value='5000000') 50 Lac
+                              option(value='6000000') 60 Lac
+                              option(value='7000000') 70 Lac
+                              option(value='8000000') 80 Lac
+                              option(value='9000000') 90 Lac
+                              option(value='10000000') 1 Cr
+                              option(value='50000000') 5 Cr
+                              option(value='100000000', selected='selected') 10 Cr
+                  li.form-field.search-button
+                    .search-button-wrapper
+                      a(onclick='searchProperty()')
+                        i.fa.fa-search(aria-hidden='true')
+                .clear-all
+    .space_bg
+    .clearfix
+    .body_content.search_content_list
+      .container
+        #alert_placeholder
+        #cardDiv.row
+        .row
+          .col-12
+            .pagination_right.float-right
+              nav(aria-label='...')
+                ul#pageul.pagination.pagination_list
+                  li#prevpage.page-item
+                    a.page-link(href='#', tabindex='-1') Previous
+                  li#paginatebutton
+                  //
+                    <li class="page-item active"><a class="page-link" href="#">1 </a></li>
+                    <li class="page-item">
+                    <a class="page-link" href="#">2</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  li#nextpage.page-item(style='float:left')
+                    a.page-link(href='#') Next
+            .clearfix
+    footer#footer.footer_home
+      .container
+        .row
+          .col-12
+            .property-name(style='margin-bottom: 30px;border-bottom: 1px solid #666666; padding-bottom: 20px;')
+              h2 Get in touch with us
+          .col-md-3.col-sm-12
+            .footer_blog
+              h5 Useful Links
+              ul.footer_details
+                li
+                  a(href='/home', target='_blank') Home
+                li
+                  a(href='https://propertydarshan.wordpress.com/', target='_blank') Blog
+                li
+                  a(href='/terms', target='_blank') Terms & Conditions
+                li
+                  a(href='/contact', target='_blank') Contact
+                li
+                  a(href='#!') Sitemap
+          .col-md-3.col-sm-12
+            .footer_blog
+              h5 Social Links
+              ul.footer_details.social_list
+                li
+                  a(href='https://www.facebook.com/Property-Darshan-2271922259762439/', target='_blank')
+                    i.fa.fa-facebook-square(aria-hidden='true')
+                    |  Facebook
+                li
+                  a(href='https://www.youtube.com/channel/UCb5l-GcKXKcRgK8MKzko_6g?', target='_blank')
+                    i.fa.fa-youtube-play(aria-hidden='true')
+                    |  Youtube
+                li
+                  a(href='https://www.linkedin.com/in/property-darshan-9a2664185/', target='_blank')
+                    i.fa.fa-linkedin-square(aria-hidden='true')
+                    |  Linkedin
+                li
+                  a(href='https://twitter.com/evisitproperty', target='_blank')
+                    i.fa.fa-twitter-square(aria-hidden='true')
+                    |  Twitter
+          .col-md-6.col-sm-12
+            .footer_blog
+              h5 Find Us
+              ul.footer_details
+                li
+                  p
+                    i.fa.fa-map(aria-hidden='true')
+                    |  21,Hemant Basu Sarani,4th Floor Room No.432,Centre Point Building,Kolkata - 700001
+                li
+                  a(href='mailto:info@propertydarshan.com')
+                    i.fa.fa-envelope(aria-hidden='true')
+                    |  info@propertydarshan.com
+                li
+                  a(href='callto:8902450014')
+                    i.fa.fa-phone-square(aria-hidden='true')
+                    |  8902450014
+      .bottom_footer
+        p © Copyright PropertyDarshan 2019. All Rights Reserved
+    script(type='text/javascript', src='user/js/select2.min.js')
+    script(src='user/js/getPropertyValues.js')

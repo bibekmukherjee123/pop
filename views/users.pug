@@ -1,0 +1,145 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title 360 Backend
+    link(href='/useradmin/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/useradmin/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/iCheck/custom.css', rel='stylesheet')
+    link(href='/useradmin/css/animate.css', rel='stylesheet')
+    link(href='/useradmin/css/style.css', rel='stylesheet')
+  body
+    #wrapper
+      nav.navbar-default.navbar-static-side(role='navigation')
+        .sidebar-collapse
+          ul#side-menu.nav.metismenu
+            li.nav-header
+              a(href='index.html')
+                .dropdown.profile-element
+                  h1(style='color: #fff; font-weight: 700; text-align: center;') 360
+                .logo-element
+                  | 360
+            li
+              a(href='#')
+                i.fa.fa-building
+                span.nav-label Property Upload
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/properties') List Property
+                li
+                  a(href='/admin/propertytypes') Property Type
+                li
+                  a(href='/admin/tags') Search Tags
+                li
+                  a(href='/admin/amenities') Amenities
+            li
+              a(href='/admin/vrupload')
+                i.fa.fa-tripadvisor
+                span.nav-label VR Upload
+            li
+              a(href='/admin/blog')
+                i.fa.fa-rss-square
+                span.nav-label Blog
+            li
+              a(href='#')
+                i.fa.fa-search-plus
+                span.nav-label Enquiries
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/propertyenquiry') Customer Enquiries
+                li
+                  a(href='/admin/shootenquiry') 360 shoot Enquiries
+            li
+              a(href='/admin/users')
+                i.fa.fa-user
+                span.nav-label Admin Accounts
+            li
+              a(href='#')
+                i.fa.fa-files-o
+                span.nav-label Others
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/social') Social
+                li
+                  a(href='/admin/terms') T & C
+            li
+              a(href='/admin/settings')
+                i.fa.fa-cog
+                span.nav-label Settings
+      #page-wrapper.gray-bg
+        .row.border-bottom
+          nav.navbar.navbar-static-top(role='navigation', style='margin-bottom: 0')
+            .navbar-header
+              a.navbar-minimalize.minimalize-styl-2.btn.btn-primary(href='#')
+                i.fa.fa-bars
+            ul.nav.navbar-top-links.navbar-right
+              li
+                a(href='/admin/login')
+                  i.fa.fa-sign-out
+                  |  Log out
+        .row.wrapper.border-bottom.white-bg.page-heading
+          .col-sm-12
+            h2
+              strong Admin Accounts
+            ol.breadcrumb
+              li.breadcrumb-item
+                a Home
+              li.breadcrumb-item.active
+                strong Admin Accounts
+        .wrapper.wrapper-content.animated.fadeInRight
+          .row
+            .col-lg-12
+              .ibox
+                .ibox-title
+                  .row.padding_15
+                    .col-sm-3.padding_5
+                      .input-group
+                        input#searchInputUsers.form-control.form-control-sm(placeholder='Search', type='text')
+                        span.input-group-append
+                          button.btn.btn-sm.btn-primary(style='margin-right:5px;', onclick='searchUsers()', type='button') Go
+                          button.btn.btn-sm.btn-primary(type='button', onclick='clearUsers()') Clear
+                    .col-sm-9.padding_5
+                      .add_btn
+                        .title-action
+                          a.btn.btn-primary.btn-sm(href='/admin/editusers') Add Admin Account
+                .ibox-content
+                  #alert_placeholder
+                  .table-responsive
+                    table.table.table-striped
+                      thead
+                        tr
+                          th Sl No 
+                          th  Name 
+                          th Email
+                          th Phone number
+                          th Image
+                          th Status
+                          th Action
+                      tbody#users_list
+                    .pagination_group.text-right
+                      .btn-group
+                        button#prevpage.btn.btn-white(type='button')
+                          i.fa.fa-chevron-left
+                        #paginatebutton
+                        button#nextpage.btn.btn-white(type='button')
+                          i.fa.fa-chevron-right
+    // Mainly scripts
+    script(src='/useradmin/js/jquery-3.1.1.min.js')
+    script(src='/useradmin/js/popper.min.js')
+    script(src='/useradmin/js/bootstrap.js')
+    script(src='/useradmin/js/plugins/metisMenu/jquery.metisMenu.js')
+    script(src='/useradmin/js/plugins/slimscroll/jquery.slimscroll.min.js')
+    // Peity
+    script(src='/useradmin/js/plugins/peity/jquery.peity.min.js')
+    // Custom and plugin javascript
+    script(src='/useradmin/js/inspinia.js')
+    script(src='/useradmin/js/plugins/pace/pace.min.js')
+    // iCheck
+    script(src='/useradmin/js/plugins/iCheck/icheck.min.js')
+    // Peity
+    script(src='/useradmin/js/demo/peity-demo.js')
+    script(src='/useradmin/user/read.js')

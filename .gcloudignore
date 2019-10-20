@@ -1,0 +1,8 @@
+*.bak*
+*.md*
+.*
+.git/
+.idea/
+node_modules/
+.vscode/
+3d_tours/

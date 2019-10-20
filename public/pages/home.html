@@ -1,0 +1,241 @@
+<!-- !DOCTYPE html-->
+<html lang="en">
+
+<head>
+    <title>Property 360</title>
+    <meta name="description" content="" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="user/js/homemain.js"></script>
+    <script src="user/js/main.js"></script>
+    <link rel="stylesheet" href="user/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="user/css/line-awesome.min.css" />
+    <link rel="stylesheet" href="user/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="user/css/select2.min.css" />
+    <link rel="stylesheet" href="user/css/style.css" />
+    <link rel="stylesheet" href="user/css/responsive.css" />
+    <style>
+        body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        
+        #property_checkbox label {
+            margin: 0px 3px 0px 3px;
+        }
+        
+         ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
+    </style>
+</head>
+
+<body class="search_body" id="body">
+    <header class="site-header search_header" id="site-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="site-logo">
+                        <a href="/home"><img src="/user/images/logo.png" title="Logo" class="img-fluid" /></a><a class="search_menu" href="#!"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                </div>
+                <div class="col-md-9">
+                    <div class="property-search-wrapper max_screen">
+                        <form class="property-search-form" action="javascript:void(0)">
+                            <div class="clear-all"></div>
+                            <ul class="list-common">
+                                <li class="form-field">
+                                    <div class="block-container">
+                                        <div class="keyword-search-box">
+                                            <select class="keyword" id="keyword" name="keyword[]" multiple="multiple" style="width: 100%">
+                          <!-- <optgroup id="property_names" label="Property Names">-->
+                          <!-- <optgroup id="locations" label="Locations">-->
+                          <optgroup id="property_tags" label="Location Tags"></optgroup>
+                        </select>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form-field">
+                                    <div class="property-type-box">
+                                        <input class="input-area select_box" id="message-1" type="button" value="Property Type" />
+                                    </div>
+                                    <div class="dropdown-list prop-type-dropdown" id="respond-1" style="display: none">
+                                        <div class="prop-type">
+                                            <div class="property_label" id="property_checkbox"></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form-field">
+                                    <div class="budget-box">
+                                        <input class="input-area" id="message-2" type="button" value="Budget" />
+                                    </div>
+                                    <div class="budget-dropdown" id="respond-2" style="display:none">
+                                        <div class="refine-budget">
+                                            <div class="range range-list">
+                                                <div class="range-option">
+                                                    <div class="range-link range-option--min" id="min">MIN</div>
+                                                    <div class="range-link range-option--max" id="max">MAX</div>
+                                                </div>
+                                                <div class="range-min refine-budget--range-min dropdown-select2-container" id="min_show">
+                                                    <select class="budget-range-min" id="budget_min" name="budgetMin[]" style="width: 100%">
+                              <option value="10000">10 K</option>
+                              <option value="20000">20 K</option>
+                              <option value="30000">30 K</option>
+                              <option value="40000">40 K</option>
+                              <option value="50000">50 K</option>
+                              <option value="60000">60 K</option>
+                              <option value="70000">70 K</option>
+                              <option value="80000">80 K</option>
+                              <option value="90000">90 K</option>
+                              <option value="1000000">1 Lac</option>
+                              <option value="500000">5 Lac</option>
+                              <option value="1000000">10 Lac</option>
+                              <option value="2000000">20 Lac</option>
+                              <option value="2500000">25 Lac</option>
+                              <option value="3000000">30 Lac</option>
+                              <option value="4000000">40 Lac</option>
+                              <option value="5000000">50 Lac</option>
+                              <option value="6000000">60 Lac</option>
+                              <option value="7000000">70 Lac</option>
+                              <option value="8000000">80 Lac</option>
+                              <option value="9000000">90 Lac</option>
+                              <option value="10000000">1 Cr</option>
+                              <option value="50000000">5 Cr</option>
+                            </select>
+                                                </div>
+                                                <div class="range-max refine-budget--range-max dropdown-select2-container" id="max_show" style="display: none">
+                                                    <select class="budget-range-max" id="budget_max" name="budgetMax[]" style="width: 100%">
+                              <option value="20000">20 K</option>
+                              <option value="30000">30 K</option>
+                              <option value="40000">40 K</option>
+                              <option value="50000">50 K</option>
+                              <option value="60000">60 K</option>
+                              <option value="70000">70 K</option>
+                              <option value="80000">80 K</option>
+                              <option value="90000">90 K</option>
+                              <option value="1000000">1 Lac</option>
+                              <option value="500000">5 Lac</option>
+                              <option value="1000000">10 Lac</option>
+                              <option value="2000000">20 Lac</option>
+                              <option value="2500000">25 Lac</option>
+                              <option value="3000000">30 Lac</option>
+                              <option value="4000000">40 Lac</option>
+                              <option value="5000000">50 Lac</option>
+                              <option value="6000000">60 Lac</option>
+                              <option value="7000000">70 Lac</option>
+                              <option value="8000000">80 Lac</option>
+                              <option value="9000000">90 Lac</option>
+                              <option value="10000000">1 Cr</option>
+                              <option value="50000000">5 Cr</option>
+                              <option value="100000000" selected="selected">10 Cr</option>
+                            </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="form-field search-button">
+                                    <div class="search-button-wrapper"><a onclick="searchProperty()"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                                </li>
+                            </ul>
+                            <div class="clear-all"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="space_bg"></div>
+    <div class="clearfix"></div>
+    <div class="body_content search_content_list">
+        <div class="container">
+            <div id="alert_placeholder"></div>
+            <div class="row" id="cardDiv"></div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="pagination_right float-right">
+                        <nav aria-label="...">
+                            <ul class="pagination pagination_list" id="pageul">
+                                <li class="page-item" id="prevpage"><a class="page-link" href="#" tabindex="-1">Previous</a></li>
+                                <li id="paginatebutton"></li>
+                                <!--
+                  <li class="page-item active"><a class="page-link" href="#">1 </a></li>
+                  <li class="page-item">
+                  <a class="page-link" href="#">2</a>
+                  </li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  -->
+                                <li class="page-item" id="nextpage" style="float:left"><a class="page-link" href="#">Next</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="footer" class="footer_home">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="property-name" style="margin-bottom: 30px;border-bottom: 1px solid #666666; padding-bottom: 20px;">
+                        <h2>Get in touch with us</h2>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="footer_blog">
+                        <h5>Useful Links</h5>
+                        <ul class="footer_details">
+                            <li><a href="/home" target="_blank">Home</a></li>
+                            <li><a href="https://propertydarshan.wordpress.com/" target="_blank">Blog</a></li>
+                            <li><a href="/terms" target="_blank">Terms & Conditions</a></li>
+                            <li><a href="/contact" target="_blank">Contact</a></li>
+                            <li><a href="#!">Sitemap</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="footer_blog">
+                        <h5>Social Links</h5>
+                        <ul class="footer_details social_list">
+                            <li><a href="https://www.facebook.com/Property-Darshan-2271922259762439/" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+                            <li><a href="https://www.youtube.com/channel/UCb5l-GcKXKcRgK8MKzko_6g?" target="_blank"><i class="fa fa-youtube-play" aria-hidden="true"></i> Youtube</a></li>
+                            <li><a href="https://www.linkedin.com/in/property-darshan-9a2664185/" target="_blank"><i class="fa fa-linkedin-square" aria-hidden="true"></i> Linkedin</a></li>
+                            <li><a href="https://twitter.com/evisitproperty" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="footer_blog">
+                        <h5>Find Us</h5>
+                        <ul class="footer_details">
+                            <li>
+                                <p><i class="fa fa-map" aria-hidden="true"></i> 21,Hemant Basu Sarani,4th Floor Room No.432,Centre Point Building,Kolkata - 700001</p>
+                            </li>
+                            <li><a href="mailto:info@propertydarshan.com"><i class="fa fa-envelope" aria-hidden="true"></i> info@propertydarshan.com</a></li>
+                            <li><a href="callto:8902450014"><i class="fa fa-phone-square" aria-hidden="true"></i> 8902450014</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom_footer">
+            <p>© Copyright PropertyDarshan 2019. All Rights Reserved</p>
+        </div>
+    </footer>
+    <script type="text/javascript" src="user/js/select2.min.js"></script>
+    <script src="user/js/getPropertyValues.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+// !DOCTYPE html
+html(lang='en')
+  head
+    title 3D Tour
+    meta(name='description', content='')
+    meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no')
+    link(rel='stylesheet', href='user/css/font-awesome.min.css')
+    link(rel='stylesheet', href='user/css/line-awesome.min.css')
+    link(href='user/css/bootstrap.min.css', rel='stylesheet')
+    link(rel='stylesheet', href='user/css/style.css')
+    link(rel='stylesheet', href='user/css/responsive.css')
+    link(rel='stylesheet', href='user/css/validatorstyle.css')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js', integrity='sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=', crossorigin='anonymous')
+    script(src='user/js/landingmain.js')
+    style.
+      body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      }
+  body
+    header#header
+      .container
+        .row
+          .col-sm-5
+            .home_logo
+              a(href='/home')
+                img(src='user/images/logo.png', title='Logo')
+          .col-sm-7
+            .home_nav
+              // <ul class="sign_up">
+              // <li><a href="#!">SignUp</a></li>
+              // <li>|</li>
+              // <li><a href="#!">Login</a></li>
+              // </ul>
+              // banner_text
+              .row
+                .about_home_text
+                  h2 Get Your Property Shot
+                  h1
+                    | in 360
+                    sup °
+    // end header
+    .shoot_enquery_section
+      .shoot_content
+        .row
+          .col-sm-7
+            .shoot_blog
+              .blog_heading
+                h3 Where you come to Shoot 360.
+                .home_under_line
+              p
+                span Why 360
+              p
+                | Videos are particularly suitable at telling a story, indicating an activity or swiftly moving between scenes. But, like the still image, video dictates what the viewer will see.While stills and videos control the viewer experience,
+                | 360VR gives control to the viewer. It's active, not passive, so it involves viewers on a totally irreplaceable manner. What's more, instead of cropping or limiting the view, 360VR allows the viewer to gaze at everything in
+                | all directions. It nearly places the viewer into a location. So, it carries an additional notch of reliability. The viewer can see what a place is really like.
+          .col-sm-5
+            #enquiry_div.information_form.inputGroupContainer
+              form#enquiry_form.bootstrap-form.needs-validation(action='javascript:void(0)', role='form', novalidate='')
+                .form-group
+                  input#shoot_cust_name.form-control(type='text', name='cust_name', placeholder='Name', minlength='3', required='')
+                  .invalid-feedback
+                    | Please enter your Name
+                .form-group
+                  input#shoot_cust_phone.form-control(type='number', name='mobilenumber', pattern='(6|7|8|9)\d{9}', placeholder='Phone', required='')
+                  .invalid-feedback
+                    | Please enter a valid mobile number
+                .form-group
+                  input#shoot_cust_email.form-control(type='email', name='cust_email', placeholder='Email')
+                  .invalid-feedback
+                    | Please enter a valid email
+                .form-group
+                  textarea#shoot_cust_address.form-control.md-textarea(type='text', name='cust_address', rows='3', placeholder='Address')
+                button#form_submit_button.btn.submit_btn(type='submit') Request 360 shoot
+    // end shoot content
+    .body_section
+      .service_section
+        .container.padding_top
+          .row
+            .col-md-4
+              .service_content
+                img(src='user/images/icon/dolor.png', alt='icon')
+                h3 One Property One Listing: 
+                p
+                  | All the properties listed on our website follow this principle and strict measures are ensured so as to avoid duplicate listings of a single property thus diluting the market for it and ensure correctness in sale value and
+                  | information.
+            .col-md-4
+              .service_content
+                img(src='user/images/icon/web.png', alt='icon')
+                h3 Verified Listings: 
+                p
+                  | All the properties shown are verified correctly so as to provide a credible, reliable & authentic sale & purchase proposals which are verified by Experts.
+            .col-md-4
+              .service_content
+                img(src='user/images/icon/man.png', alt='icon')
+                h3 Every Listing with 360 Virtual Tour: 
+                p Each and every Listed property in our Website is with 360 Virtual Tour.
+      // end service section
+      .advantages
+        .container
+          .blog_heading
+            h1 Advantages of our process
+            br
+            .home_under_line
+          .row
+            .col-md-6.order-last.order-md-0
+              .advantage_section_text
+                div
+                  img(src='user/images/advantage/1.png')
+                .content_text
+                  h4 Save Time and Effort:
+                  p
+                    | Instead of staging a arduous and tireless open house event, a 360 virtual tour remains permanently open for anyone who wants to visit. This saves you the time and resources you would otherwise spend scheduling an open house,
+                    | keeping contacts and staying at the site while many who will never buy just come in to ask questions. It allows seller to filter the leads without visiting the sight physically. It also allows buyer to filter the property
+                    | as per requirement without visiting physically. Its saves Time and effort for both buyer and seller.
+            .col-md-6
+              .advantage_section_img
+                img.img-fluid(src='user/images/advantage/img_1.jpg')
+          .row.section_margin
+            .col-md-6
+              .advantage_section_img
+                img.img-fluid(src='user/images/advantage/img_2.jpg')
+            .col-md-6
+              .advantage_section_text
+                div
+                  img(src='user/images/advantage/2.png')
+                .content_text
+                  h4 Capture Customers in Remote Locations:
+                  p
+                    | This technology is excellent for customers who want to buy/Sell/Lease Property from any part of the country or from foreign country . Buyers can click on rooms, bathrooms, kitchens, patios, chamber giving them a clear 360
+                    | view of each part of the Property 24*7
+          .row
+            .col-md-6.order-last.order-md-0
+              .advantage_section_text
+                div
+                  img(src='user/images/advantage/3.png')
+                .content_text
+                  h4 Increase Conversion Ratio (ICR) : 
+                  p
+                    | 360 Virtual Tour is interactive and User friendly which gives User to interact and complete 360 view of multiple property and multiple times in a go while even buyer staying outside city, thus increases the conversion ratio
+                    | of the property automatically.
+            .col-md-6
+              .advantage_section_img
+                img.img-fluid(src='user/images/advantage/img_3.jpg')
+      // end advantage section
+      .client_section
+        .container
+          .blog_heading
+            h1 What Client says
+            br
+            .home_under_line
+          .row.top_margin
+            .col-md-4
+              .client_blog
+                img(src='user/images/client/client_1.png', alt='img')
+                p
+                  | "I Stay in Mumbai and Having Residential property in Kolkata.Thanks to Propertydarshan.com through which I had got the Best deal of my Property."
+                img(src='user/images/client/ratting.png', alt='img')
+                h5 Jyoti Jain
+            .col-md-4
+              .client_blog
+                img(src='user/images/client/client_2.png', alt='img')
+                p
+                  | "Inspite of being at Burdwan,West Bengal through “Propertydarshan.com” Virtual Tour I had find it convenient and got a great response which helped me to get a good tenant."
+                img(src='user/images/client/ratting.png', alt='img')
+                h5 Deep Halder
+            .col-md-4
+              .client_blog
+                img(src='user/images/client/client_3.png', alt='img')
+                p
+                  | "I Stay in Kolkata and I had a residential property for sale. Attending regular inspections of buyer was really inconvenient as I am a service person. Thanks to propertydarshan.com virtual tour I got free from regular inspections."
+                img(src='user/images/client/ratting.png', alt='img')
+                h5 Sushmita Chakraborty 
+    // end body_content
+    footer#footer
+      .container
+        .blog_heading
+          h1 Contact Now
+          br
+          .home_under_line
+        .row
+          .col-md-3.col-sm-12
+            .footer_blog.landing
+              h5 Useful Links
+              ul.footer_details.landing_page_list
+                li
+                  a(href='/home') Home
+                li
+                  a(href='https://propertydarshan.wordpress.com/') Blog
+                li
+                  a(href='#!') Terms & Conditions
+                li
+                  a(href='#!') contact
+                li
+                  a(href='#!') Sitemap
+          .col-md-3.col-sm-12
+            .footer_blog.landing
+              h5 Social Links
+              ul.footer_details.landing_page_list
+                li
+                  a(href='https://www.facebook.com/Property-Darshan-2271922259762439/', target='_blank')
+                    i.fa.fa-facebook-square(aria-hidden='true')
+                    |  Facebook
+                li
+                  a(href='https://www.youtube.com/channel/UCb5l-GcKXKcRgK8MKzko_6g?', target='_blank')
+                    i.fa.fa-youtube-play(aria-hidden='true')
+                    |  Youtube
+                li
+                  a(href='https://www.linkedin.com/in/property-darshan-9a2664185/', target='_blank')
+                    i.fa.fa-linkedin-square(aria-hidden='true')
+                    |  Linkedin
+                li
+                  a(href='https://twitter.com/evisitproperty', target='_blank')
+                    i.fa.fa-twitter-square(aria-hidden='true')
+                    |  Twitter
+          .col-md-6.col-sm-12
+            .footer_blog.landing
+              h5 Find Us
+              ul.footer_details.landing_page_list
+                li
+                  p
+                    i.fa.fa-map(aria-hidden='true')
+                    |  21,Hemant Basu Sarani,4th Floor Room No.432,Centre Point Building,Kolkata - 700001
+                li
+                  a(href='mailto:info@propertydarshan.com')
+                    i.fa.fa-envelope(aria-hidden='true')
+                    |  info@propertydarshan.com
+                li
+                  a(href='callto:8902450014')
+                    i.fa.fa-phone-square(aria-hidden='true')
+                    |  8902450014
+      .bottom_footer.landing_page_list
+        p © Copyright 360 Property 2019. All Rights Reserved
+    // end footer
+    script(type='text/javascript', src='user/js/bootstrap.min.js')
+    script(src='user/js/validator.js')
+    script(src='user/js/landingpage.js')

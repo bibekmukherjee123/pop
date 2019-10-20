@@ -1,0 +1,184 @@
+
+
+/* hide tools before redactor init*/
+#pr_tools_container, #pr_button_hide{
+    display: none;
+}
+
+
+/* -------------  BUTTONS  ---------------  */
+.pr_button {
+    border-width: 0;
+    background-color: #101015;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.pr_button:hover {
+    background-color: #202030;
+}
+
+.pr_button_active {
+    background-color: #ff2222;
+}
+
+.pr_button_active:hover {
+    background-color: #ff564f;
+}
+
+.pr_head_button{
+    background-color: #ff2222 !important;
+}
+.pr_head_button:hover{
+    background-color: #ff564f !important;
+}
+
+/* -------------  TOOLS PANEL  ---------------  */
+.tool_panel {
+    position: absolute;
+    background-color: #101015;
+    color: #fff;
+    z-index: 10000;
+    padding: 3px 7px;
+    text-align: center;
+    cursor: default;
+}
+
+.tool_panel td {
+    vertical-align: middle;
+}
+
+/* -------------  LINK ACTION PANEL  ---------------  */
+#panel_link_actions {
+    top: 0;
+    left: 0;
+}
+
+/* -------------  PANORAMAS PANEL  ---------------  */
+#pr_table_panoramas {
+    top: 0;
+    right: 0;
+}
+#pr_table_panoramas .pr_button_del{
+    background-color: #ff2222;
+    padding: 5px;
+}
+#pr_table_panoramas .pr_button_del:hover{
+    background-color: #ff564f;
+}
+
+/* -------------  ADD LINK PANEL  ---------------  */
+#panel_add_link {
+    bottom: 0;
+    right: 0;
+}
+
+#panel_add_link IMG {
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+#panel_add_link SELECT {
+    width: 100%;
+    height: 25px;
+}
+#panel_add_link INPUT {
+    width: 45px;
+}
+
+/* -----------------  BUTTON HIDE  ---------------  */
+#pr_button_hide {
+    background-color: #ff2222;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding: 10px 20px;
+}
+
+#pr_button_hide:hover {
+    background-color: #ff564f;
+}
+
+/* -------------  FILE MANAGER FRAME  ---------------  */
+
+#pr_file_manager {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10001;
+}
+
+
+/* -------------  SAVE-LOAD PANEL  ---------------  */
+#panel_save_load {
+    position: absolute;
+    bottom: 0;
+    left: 100px;
+}
+
+/* -------------  MESSAGE PANEL  ---------------  */
+#pr_message_panel_bg{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10002;
+
+    opacity: 0.6;
+    background-color: #101015;
+
+    /* hide on load */
+    display: none;
+}
+
+#pr_message_panel{
+
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10002;
+
+    text-align: center;
+    vertical-align: middle;
+
+    /* hide on load */
+    display: none;
+}
+
+.message_container{
+
+    padding: 10px 30px;
+    background-color: #101015;
+    display: inline-block;
+    color: #fff;
+
+    max-width: 400px;
+    text-transform: none;
+}
+.message_container input{
+    margin-bottom: 10px;
+}
+
+.message_container .pr_button{
+
+    background-color: #202030;
+    width: 30%;
+}
+.message_container .pr_button:hover{
+
+    background-color: #404060;
+}
+#pr_message_text{
+    margin-bottom: 10px;
+}

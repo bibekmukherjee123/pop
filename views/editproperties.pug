@@ -1,0 +1,332 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title 360 Backend
+    link(href='/useradmin/css/bootstrap.min.css', rel='stylesheet')
+    link(href='/useradmin/font-awesome/css/font-awesome.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/chosen/bootstrap-chosen.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/bootstrap-tagsinput/bootstrap-tagsinput.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/summernote/summernote-bs4.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/select2/select2.min.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/iCheck/custom.css', rel='stylesheet')
+    link(href='/useradmin/css/animate.css', rel='stylesheet')
+    link(href='/useradmin/css/style.css', rel='stylesheet')
+    link(href='/useradmin/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css', rel='stylesheet')
+    link(href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.css' rel='stylesheet')
+    style.
+      #map {
+      height: 300px;
+      }
+      #geocoder-container>div {
+      min-width: 50%;
+      margin-left: 25%;
+      }
+  script.
+    var list_id="#{listId}";	  
+  body
+    #wrapper
+      nav.navbar-default.navbar-static-side(role='navigation')
+        .sidebar-collapse
+          ul#side-menu.nav.metismenu
+            li.nav-header
+              a(href='/home')
+                .dropdown.profile-element
+                  h1(style='color: #fff; font-weight: 700; text-align: center;') 360
+                .logo-element
+                  | 360
+            li
+              a(href='#')
+                i.fa.fa-building
+                span.nav-label Property Upload
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/properties') List Property
+                li
+                  a(href='/admin/propertytypes') Property Type
+                li
+                  a(href='/admin/tags') Search Tags
+                li
+                  a(href='/admin/amenities') Amenities
+            li
+              a(href='/admin/vrupload')
+                i.fa.fa-tripadvisor
+                span.nav-label VR Upload
+            li
+              a(href='/admin/blog')
+                i.fa.fa-rss-square
+                span.nav-label Blog
+            li
+              a(href='#')
+                i.fa.fa-search-plus
+                span.nav-label Enquiries
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/propertyenquiry') Customer Enquiries
+                li
+                  a(href='/admin/shootenquiry') 360 shoot Enquiries
+            li
+              a(href='/admin/users')
+                i.fa.fa-user
+                span.nav-label Admin Accounts
+            li
+              a(href='#')
+                i.fa.fa-files-o
+                span.nav-label Others
+                span.fa.arrow
+              ul.nav.nav-second-level.collapse
+                li
+                  a(href='/admin/social') Social
+                li
+                  a(href='/admin/terms') T & C
+            li
+              a(href='/admin/settings')
+                i.fa.fa-cog
+                span.nav-label Settings
+      #page-wrapper.gray-bg
+        .row.border-bottom
+          nav.navbar.navbar-static-top(role='navigation', style='margin-bottom: 0')
+            .navbar-header
+              a.navbar-minimalize.minimalize-styl-2.btn.btn-primary(href='#')
+                i.fa.fa-bars
+            ul.nav.navbar-top-links.navbar-right
+              li
+                a(href='/admin/login')
+                  i.fa.fa-sign-out
+                  |  Log out
+        .row.wrapper.border-bottom.white-bg.page-heading
+          .col-lg-10
+            h2
+              strong Add Property
+            ol.breadcrumb
+              li.breadcrumb-item
+                a Home
+              li.breadcrumb-item
+                a(href='/admin/properties') List Property
+              li.breadcrumb-item.active
+                strong Add Property
+        .row
+          .col-lg-12
+            .ibox
+              .ibox-title
+                h5
+                  strong Property Info:
+              .ibox-content
+                form#fileUploadForm(action='javascript:void(0)', enctype='multipart/form-data')
+                  .hr-line-dashed
+                  .form-group.row
+                    label.col-sm-2.col-form-label Title *:
+                    .col-sm-10
+                      input#listtitle.form-control(type='text', placeholder='Enter Name', required='')
+                  .hr-line-dashed
+                  .form-group.row
+                    label.col-sm-2.col-form-label Property Type *:
+                    .col-sm-10
+                      select#propertyType.select2_demo_1.form-control(required='')
+                  .hr-line-dashed
+                  .form-group.row
+                    label.col-sm-2.col-form-label Json Tour:
+                    .col-sm-10
+                      select#json_tour.select2_demo_1.form-control
+                  .hr-line-dashed
+                  .form-group.row
+                    label.col-sm-2.col-form-label Property List Type *:
+                    .col-sm-10
+                      .checked_group
+                        label.i-checks
+                          .i-checks
+                            label
+                              input#rent(name='propertyListType', type='radio', value='Rent')
+                              |  Rent
+                        label.i-checks
+                          .i-checks
+                            label
+                              input#sale(type='radio', name='propertyListType', value='Sale')
+                              |  Sale
+                  .hr-line-dashed
+                  .form-group.row
+                    label.col-sm-2.col-form-label Location *:
+                    .col-sm-10
+                      .chat-form
+                        .form-group
+                          textarea#address.form-control(placeholder='Address', required='')
+                      .form-group(style='float:left;padding-right:10px;')
+                        input#latitude.form-control(type='text', placeholder='Latitude', required='')
+                      .form-group(style='float: left;padding-right:10px;')
+                        input#longitude.form-control(type='text', placeholder='Longitude', required='')
+                      button.btn.btn-primary.btn-sm(onclick='getCordinates()') Get Cordinates
+                      #map_alert_placeholder(style='top:10px;position: relative;')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Maps Marker *:
+                  .col-sm-10
+                    #map(style='display:block')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Select Multiple Amenities:
+                  .col-sm-10
+                    .form-group
+                      div
+                        select#amenitis_option.select2_demo_4.form-control(data-placeholder='Choose Amenities/useradmin.', multiple='true')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Property Search Tags:
+                  .col-sm-10
+                    .form-group
+                      div
+                        select#searchTags.select2_demo_5.form-control(data-placeholder='Choose Search Tags/useradmin.', multiple='true')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label OverView *:
+                  .col-sm-10
+                    .wrapper.wrapper-content.bottom_padding_0
+                      .row
+                        .col-lg-12
+                          .ibox
+                            .ibox-content.no-padding
+                              #list_property_description.summernote
+                                h3 Lorem Ipsum is simply
+                                |                                                     dummy text of the printing and typesetting industry. 
+                                strong Lorem Ipsum has been the industry's
+                                |  standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                                |                                                     it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                                |                                                     of Letraset sheets containing Lorem Ipsum passages, and more recently with
+                                br
+                                br
+                                ul
+                                  li Remaining essentially unchanged
+                                  li Make a type specimen book
+                                  li Unknown printer
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Hira Number:
+                  .col-sm-10
+                    input#hira.form-control(name='hiranumber', type='text', placeholder='Enter Hira Number')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Saleable Area:
+                  .col-sm-10
+                    input#saleable.form-control(type='number', placeholder='Enter Saleable Area')
+                    | sqft
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Price:
+                  .col-sm-10
+                    input#price.form-control(type='number', placeholder='Enter Price')
+                    select#currency.select2_demo_1.form-control
+                      option(value='1000') Thousand
+                      option(value='100000') Lacs
+                      option(value='10000000') Crore
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Bedrooms:
+                  .col-sm-10
+                    .form-group
+                      div
+                        select#bedrooms.select2_demo_1.form-control
+                          option(value='NA') NA
+                          option(value='1bhk') 1 BHK
+                          option(value='2bhk') 2 BHK
+                          option(value='3bhk') 3 BHK
+                          option(value='4bhk') 4 BHK
+                          option(value='5bhk') 5 BHK
+                          option(value='6bhk') 6 BHK
+                          option(value='7bhk') 7 BHK
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Bathrooms:
+                  .col-sm-10
+                    select#bathroom.select2_demo_1.form-control
+                      option(value='NA') NA
+                      option(value='1') 1
+                      option(value='2') 2
+                      option(value='3') 3
+                      option(value='4') 4
+                      option(value='5') 5
+                      option(value='6') 6
+                      option(value='7') 7
+                      option(value='Common') Common
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Balconies:
+                  .col-sm-10
+                    input#balconies.form-control(type='number', placeholder='Enter No of Balconies')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Air Conditioning:
+                  .col-sm-10
+                    .checked_group
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#window(name='conditioningType', type='radio', value='Window')
+                            |  Window
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#split(type='radio', name='conditioningType', value='Split')
+                            |  Split
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#centralised(type='radio', name='conditioningType', value='Centralised')
+                            |  Centralised
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Furnishing*:
+                  .col-sm-10
+                    .checked_group
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#nonfurnished(name='furnishingListType', type='radio', value='Non-furnished')
+                            |  Non Furnished
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#semifurnished(type='radio', name='furnishingListType', value='Semi-furnished')
+                            |  Semi Furnished
+                      label.i-checks
+                        .i-checks
+                          label
+                            input#fullyfurnished(type='radio', name='furnishingListType', value='Fully-Furnished')
+                            |  Fully Furnished
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Cover Image:
+                  #coverimagediv.col-sm-10
+                    input#inputImagecover.hide(type='file', accept='image/*', name='coverimage')
+                .hr-line-dashed
+                .form-group.row
+                  label.col-sm-2.col-form-label Logo:
+                  #logoimagediv.col-sm-10
+                    input#inputImagelogo.hide(type='file', accept='image/*', name='logo')
+                .hr-line-dashed
+                .form-group.row
+                  .col-sm-4.col-sm-offset-2
+                    button#form_submit_button.btn.btn-primary.btn-sm(type='submit', onclick='savePropertyList()') Save changes
+                    button.btn.btn-white.btn-sm(type='reset', onclick='this.form.reset()') Cancel
+                #alert_placeholder
+    // Mainly scripts
+    script(src='/useradmin/js/jquery-3.1.1.min.js')
+    script(src='/useradmin/js/popper.min.js')
+    script(src='/useradmin/js/bootstrap.js')
+    script(src='/useradmin/js/plugins/metisMenu/jquery.metisMenu.js')
+    script(src='/useradmin/js/plugins/slimscroll/jquery.slimscroll.min.js')
+    // Custom and plugin javascript
+    script(src='/useradmin/js/inspinia.js')
+    script(src='/useradmin/js/plugins/pace/pace.min.js')
+    script(src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.2.1/mapbox-gl.js')
+    script(src='https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js')
+    // iCheck
+    script(src='/useradmin/js/plugins/iCheck/icheck.min.js')
+    // Tags Input
+    script(src='/useradmin/js/plugins/bootstrap-tagsinput/bootstrap-tagsinput.js')
+    // Select2
+    script(src='/useradmin/js/plugins/select2/select2.full.min.js')
+    // SUMMERNOTE
+    script(src='/useradmin/js/plugins/summernote/summernote-bs4.js')
+    script(src='/useradmin/property_list/createupdate.js')
